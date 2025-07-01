@@ -9,7 +9,7 @@ const LoginForm = () => {
   const { form, handleChange } = useLoginForm();
   const navigate = useNavigate();
 
-  const LoginRedirect = () => {
+  const loginRedirect = () => {
     navigate('/');
   };
 
@@ -31,7 +31,7 @@ const LoginForm = () => {
         value={form.password}
         onChange={handleChange}
       />
-      <LoginButton onClick={LoginRedirect} />
+      <LoginButton onClick={loginRedirect} />
     </Layout>
   );
 };
