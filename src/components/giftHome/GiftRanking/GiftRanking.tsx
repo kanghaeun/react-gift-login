@@ -38,7 +38,7 @@ const GiftChart: React.FC = () => {
 
   return (
     <Layout>
-      <Text fontSize="title1Bold" fontWeight="title2Bold">
+      <Text size="title1" weight="bold">
         실시간 급상승 선물랭킹
       </Text>
 

@@ -10,7 +10,7 @@ const CategoryBtn = ({ name, image }: CategoryBtnProps) => {
   return (
     <Content>
       <Image src={image} alt={name} />
-      <Text fontSize="label2Regular" fontWeight="label2Regular">
+      <Text size="label2" weight="regular">
         {name}
       </Text>
     </Content>

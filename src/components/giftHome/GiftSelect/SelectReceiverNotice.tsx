@@ -6,7 +6,7 @@ const SelectReceiverNotice = () => {
     <Layout>
       <Content>
         <SelectReceiveBtn></SelectReceiveBtn>
-        <Text fontSize="subtitle1Bold" fontWeight="subtitle1Bold">
+        <Text size="subtitle1" weight="bold">
           선물할 친구를 선택해주세요.
         </Text>
       </Content>

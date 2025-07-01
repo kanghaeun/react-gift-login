@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import GiftHome from '@/pages/GiftHome';
 import Login from '@/pages/Login';
-import NotFound from '@/pages/Notfound';
+import NotFound from '@/pages/NotFound';
 
 export const Router = () => {
   return (

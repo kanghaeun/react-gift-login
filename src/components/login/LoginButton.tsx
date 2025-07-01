@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 const LoginButton = ({ onClick }: { onClick: () => void }) => {
   return (
     <Content onClick={onClick}>
-      <Text fontSize="label1Regular" fontWeight="body1Regular">
+      <Text size="label1" weight="regular">
         로그인
       </Text>
     </Content>

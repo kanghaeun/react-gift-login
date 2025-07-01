@@ -6,7 +6,7 @@ import Text from '@/common/Text';
 const GiftCategoryList = () => {
   return (
     <Layout>
-      <Text fontSize="title1Bold" fontWeight="title2Bold">
+      <Text size="title1" weight="bold">
         선물 테마
       </Text>
       <CategoryItem>

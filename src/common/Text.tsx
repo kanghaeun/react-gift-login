@@ -2,33 +2,26 @@ import styled from '@emotion/styled';
 import { theme } from '@/styles/theme';
 import React from 'react';
 
-type TypographyKey = keyof typeof theme.typography;
+type FontSizeKey = keyof typeof theme.typography.fontSizes;
+type FontWeightKey = keyof typeof theme.typography.fontWeights;
 
 interface TextProps {
-  fontSize?: TypographyKey;
-  fontWeight?: TypographyKey;
+  size?: FontSizeKey;
+  weight?: FontWeightKey;
   children: React.ReactNode;
 }
 
-const Text = ({
-  fontSize = 'body1Regular',
-  fontWeight = 'body1Regular',
-  children,
-}: TextProps) => {
+const Text = ({ size = 'body1', weight = 'regular', children }: TextProps) => {
   return (
-    <StyledText fontSize={fontSize} fontWeight={fontWeight}>
+    <StyledText size={size} weight={weight}>
       {children}
     </StyledText>
   );
 };
 
-export default Text;
-
-const StyledText = styled.div<{
-  fontSize: TypographyKey;
-  fontWeight: TypographyKey;
-}>`
-  font-size: ${({ theme, fontSize }) => theme.typography[fontSize].fontSize};
-  font-weight: ${({ theme, fontWeight }) =>
-    theme.typography[fontWeight].fontWeight};
+const StyledText = styled.div<{ size: FontSizeKey; weight: FontWeightKey }>`
+  font-size: ${({ theme, size }) => theme.typography.fontSizes[size]};
+  font-weight: ${({ theme, weight }) => theme.typography.fontWeights[weight]};
 `;
+
+export default Text;

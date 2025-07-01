@@ -4,7 +4,7 @@ import Text from '@/common/Text';
 const NotFound = () => {
   return (
     <Layout>
-      <Text fontSize="subtitle1Regular" fontWeight="title1Regular">
+      <Text size="subtitle1" weight="regular">
         요청하신 페이지를 찾을 수 없습니다.
       </Text>
     </Layout>

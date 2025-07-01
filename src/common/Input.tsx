@@ -34,7 +34,7 @@ const StyledInput = styled.input`
   border: none;
 
   border-bottom: 1.2px solid ${({ theme }) => theme.colors.borderDefault};
-  font-size: ${({ theme }) => theme.typography.title2Bold.fontSize};
+  font-size: ${({ theme }) => theme.typography.fontSizes.title2};
   outline: none;
 
   &:focus {
