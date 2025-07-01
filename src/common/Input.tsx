@@ -2,15 +2,23 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 interface InputProps {
+  name?: string;
   type?: string;
   placeholder?: string;
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Input = ({ type = 'text', placeholder, value, onChange }: InputProps) => (
+const Input = ({
+  name,
+  type = 'text',
+  placeholder,
+  value,
+  onChange,
+}: InputProps) => (
   <Layout>
     <StyledInput
+      name={name}
       type={type}
       placeholder={placeholder}
       value={value}
@@ -32,7 +40,6 @@ const Layout = styled.div`
 const StyledInput = styled.input`
   padding: 12px 16px;
   border: none;
-
   border-bottom: 1.2px solid ${({ theme }) => theme.colors.borderDefault};
   font-size: ${({ theme }) => theme.typography.fontSizes.title2};
   outline: none;

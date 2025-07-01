@@ -6,7 +6,7 @@ import Input from '@/common/Input';
 import LoginButton from '@/components/login/LoginButton';
 
 const LoginForm = () => {
-  const { id, setId, password, setPassword } = useLoginForm();
+  const { form, handleChange } = useLoginForm();
   const navigate = useNavigate();
 
   const LoginRedirect = () => {
@@ -19,15 +19,17 @@ const LoginForm = () => {
       <Logo>kakao</Logo>
 
       <Input
+        name="id"
         placeholder="이메일"
-        value={id}
-        onChange={(e) => setId(e.target.value)}
+        value={form.id}
+        onChange={handleChange}
       />
       <Input
+        name="password"
         type="password"
         placeholder="비밀번호"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        value={form.password}
+        onChange={handleChange}
       />
       <LoginButton onClick={LoginRedirect} />
     </Layout>
@@ -35,10 +37,12 @@ const LoginForm = () => {
 };
 
 export default LoginForm;
+
 const Logo = styled.div`
   font-size: 40px;
   margin-bottom: 40px;
 `;
+
 const Layout = styled.div`
   display: flex;
   flex-direction: column;
