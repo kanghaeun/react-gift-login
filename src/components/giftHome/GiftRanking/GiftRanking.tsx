@@ -1,4 +1,5 @@
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 import styled from '@emotion/styled';
 import ProductCard from '@/components/giftHome/GiftThemes/ProductCard';
 import Text from '@/common/Text';
@@ -22,11 +23,31 @@ const rankTypeLabels: Record<RankType, string> = {
   MANY_WISHLIST: '위시로 받은',
 };
 
+const isValidTargetType = (value: string | null): value is TargetType =>
+  targetTypes.includes(value as TargetType);
+
+const isValidRankType = (value: string | null): value is RankType =>
+  rankTypes.includes(value as RankType);
+
 const GiftChart: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
 
-  const selectedTarget = (searchParams.get('target') as TargetType) || 'ALL';
-  const selectedRank = (searchParams.get('rank') as RankType) || 'MANY_WISH';
+  const targetParam = searchParams.get('target');
+  const rankParam = searchParams.get('rank');
+
+  useEffect(() => {
+    if (!isValidTargetType(targetParam) || !isValidRankType(rankParam)) {
+      navigate('/notfound');
+    }
+  }, [targetParam, rankParam, navigate]);
+
+  if (!isValidTargetType(targetParam) || !isValidRankType(rankParam)) {
+    return null;
+  }
+
+  const selectedTarget = targetParam as TargetType;
+  const selectedRank = rankParam as RankType;
 
   const handleTargetClick = (target: TargetType) => {
     setSearchParams({ target, rank: selectedRank });
